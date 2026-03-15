@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 1.8em;
+      font-weight: 600;
+      color: #222;
+    }
+    p {
+      margin: 10px 0;
+      font-size: 1em;
+      color: #555;
+    }
+    .countdown {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #0078d7;
+    }
+    .progress-bar {
+      width: 100%;
+      background: #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .progress {
+      height: 10px;
+      background: #0078d7;
+      width: 0%;
+      transition: width 1s linear;
+    }
+    a {
+      color: #0078d7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Redirecting...</h1>
+    <p>You will be redirected shortly</p>
+    <div class="countdown" id="countdown">5</div>
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+    <p>If not redirected, click <a href="https://t.me/afang168">here</a>.</p>
+  </div>
+
+  <script>
+    let timeLeft = 5; // detik
+    const countdownEl = document.getElementById('countdown');
+    const progressEl = document.getElementById('progress');
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+      progressEl.style.width = ((5 - timeLeft) / 5 * 100) + "%";
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = "https://t.me/afang168";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
